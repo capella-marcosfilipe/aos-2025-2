@@ -1,3 +1,11 @@
-import 'dotenv/config';
+import express from "express";
 
-console.log(process.env.MY_SECRET);
+const app = express();
+
+app.get("/", (req, res) => {
+    res.send("Bem-vindo ao Express de Marcos");
+});
+
+app.listen(3000, () => {
+    console.log("Escutando na porta 3000!")
+})
