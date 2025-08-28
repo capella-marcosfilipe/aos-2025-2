@@ -1,6 +1,9 @@
 import express from 'express'
+import cors from 'cors'
 
 const app = express()
+
+app.use(cors())
 
 const frasesInspiradoras = [
   "O sucesso é a soma de pequenos esforços repetidos dia após dia.",

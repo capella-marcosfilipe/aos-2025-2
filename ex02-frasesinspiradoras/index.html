@@ -54,7 +54,7 @@
                 loadingText.classList.remove('hidden');
 
                 // Chama o endpoint '/inspiration' do seu back-end
-                const response = await fetch('/inspiration');
+                const response = await fetch('https://aos-2025-2-five.vercel.app/inspiration');
                 const data = await response.json();
                 
                 // Atualiza o texto com a nova frase
