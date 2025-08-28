@@ -33,7 +33,7 @@ app.get('/random', (req, res) => {
 
 app.get('/inspiration', (req, res) => {
     const randomInt = Math.floor(Math.random() * 15)
-    const randomInspiration = frasesInspiradoras[randomInt]
+    const randomInspiration = frasesDeTaylorSwift[randomInt]
     res.send({quote: randomInspiration})
 })
 
