@@ -5,22 +5,22 @@ const app = express()
 
 app.use(cors())
 
-const frasesInspiradoras = [
-  "O sucesso é a soma de pequenos esforços repetidos dia após dia.",
-  "Acredite no seu potencial. Você é mais forte do que pensa.",
-  "Transforme seus sonhos em planos e seus planos em realidade.",
-  "A única forma de fazer um ótimo trabalho é amar o que você faz.",
-  "Não espere por oportunidades, crie-as.",
-  "O futuro pertence àqueles que acreditam na beleza de seus sonhos.",
-  "Seja a mudança que você deseja ver no mundo.",
-  "A jornada de mil milhas começa com um único passo.",
-  "A persistência é o caminho do êxito.",
-  "Grandes mentes têm objetivos; outras têm desejos.",
-  "Seja gentil, pois cada pessoa que você encontra está travando uma batalha difícil.",
-  "Não pare quando estiver cansado. Pare quando tiver terminado.",
-  "A vida é 10% do que acontece comigo e 90% de como eu reajo a isso.",
-  "A verdadeira felicidade não é algo que se alcança, mas sim algo que se vive.",
-  "O único limite para a sua realização é a sua própria mente."
+const frasesDeTaylorSwift = [
+  "E você tem um sorriso que poderia iluminar a cidade inteira. (You Belong With Me, Fearless)",
+  "Este é um estado de graça, esta é a luta que vale a pena. (State of Grace, Red)",
+  "Para os bravos e os audaciosos, os belos e os feridos. (The Lucky One, Red)",
+  "Eu tenho passado por um momento difícil, mas ainda estou aqui. (It's Nice to Have a Friend, Lover)",
+  "É melhor acreditar que ainda estou 'bejeweled' quando entro na sala, ainda consigo fazer o lugar inteiro brilhar. (Bejeweled, Midnights)",
+  "A água encheu meus pulmões, eu gritei tão alto mas ninguém ouviu nada... Mas eu fiquei mais limpa. (Clean, 1989)",
+  "Eu uma vez acreditei que o amor seria vermelho vivo... mas é dourado como o amanhecer. (Daylight, Lover)",
+  "A velha Taylor não pode vir ao telefone agora. Por quê? Oh, porque ela está morta. (Look What You Made Me Do, Reputation)",
+  "Os que te odeiam vão te odiar, odiar, odiar... mas eu vou simplesmente ignorar. (Shake It Off, 1989)",
+  "Você é a melhor coisa que já foi minha. (Mine, Speak Now)",
+  "Nós seremos heróis de nossa própria história. (Long Live, Speak Now)",
+  "Você tem a sua vida inteira pela frente, então não a desperdice. (Never Grow Up, Speak Now)",
+  "Eu seria um líder destemido... eu seria um rei. (I Did Something Bad, Reputation)",
+  "E quando eu me sentia como um casaco velho debaixo da cama de alguém, você me vestiu e disse que eu era o seu favorito. (champagne problems, evermore)",
+  "A vida é uma jornada. Você só precisa encontrar a pessoa que te faz feliz. (The Lucky One, Red)"
 ];
 
 app.get('/', (req, res) => {
