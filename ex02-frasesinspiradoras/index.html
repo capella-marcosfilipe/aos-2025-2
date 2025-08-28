@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frase do Dia</title>
+    <!-- Inclui a biblioteca Tailwind CSS para estilização rápida -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Inclui a fonte Inter do Google Fonts para uma tipografia moderna -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-pink-50 min-h-screen flex items-center justify-center p-4">
+
+    <!-- Container principal que centraliza o conteúdo na tela -->
+    <main class="w-full max-w-lg bg-white p-8 md:p-12 rounded-3xl shadow-2xl text-center transform transition duration-500 hover:scale-105">
+
+        <!-- Título da página -->
+        <h1 class="text-2xl md:text-3xl font-bold text-pink-600 mb-6">Sua Frase do Dia</h1>
+
+        <!-- Elemento para exibir a frase inspiradora -->
+        <blockquote class="text-xl md:text-2xl lg:text-3xl font-light italic text-pink-700">
+            <p id="quote-text" class="transition-opacity duration-500 opacity-0"></p>
+        </blockquote>
+
+        <!-- Elemento de loading que será exibido enquanto a frase é carregada -->
+        <p id="loading-text" class="text-gray-400 mt-4">Carregando...</p>
+
+        <!-- Botão para carregar uma nova frase -->
+        <button id="new-quote-btn" class="mt-8 px-6 py-3 bg-pink-500 text-white font-medium rounded-full shadow-lg hover:bg-pink-600 transition duration-300 transform hover:translate-y-[-2px] focus:outline-none focus:ring-2 focus:ring-pink-500 focus:ring-offset-2">
+            Ver Outra Frase
+        </button>
+    </main>
+
+    <script>
+        // Obtém referências para os elementos do DOM
+        const quoteText = document.getElementById('quote-text');
+        const loadingText = document.getElementById('loading-text');
+        const newQuoteBtn = document.getElementById('new-quote-btn');
+
+        /**
+         * Função assíncrona para buscar e exibir uma nova frase inspiradora.
+         */
+        async function fetchQuote() {
+            try {
+                // Esconde a frase atual e mostra a mensagem de loading
+                quoteText.style.opacity = '0';
+                loadingText.classList.remove('hidden');
+
+                // Chama o endpoint '/inspiration' do seu back-end
+                const response = await fetch('/inspiration');
+                const data = await response.json();
+                
+                // Atualiza o texto com a nova frase
+                quoteText.textContent = data.quote;
+
+                // Esconde a mensagem de loading e exibe a frase
+                loadingText.classList.add('hidden');
+                quoteText.style.opacity = '1';
+                
+            } catch (error) {
+                // Em caso de erro, exibe uma mensagem no console e na tela
+                console.error("Erro ao buscar a frase:", error);
+                quoteText.textContent = "Oops! Não foi possível carregar a frase. Tente novamente mais tarde.";
+                loadingText.classList.add('hidden');
+                quoteText.style.opacity = '1';
+            }
+        }
+
+        // Adiciona um listener de evento ao botão para buscar uma nova frase ao clicar
+        newQuoteBtn.addEventListener('click', fetchQuote);
+
+        // Busca uma frase inicial quando a página é carregada
+        document.addEventListener('DOMContentLoaded', fetchQuote);
+    </script>
+</body>
+</html>
